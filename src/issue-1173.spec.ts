@@ -24,7 +24,7 @@ describe("issue #1173", () => {
       highlighter: new MongoHighlighter(),
       driverOptions: { pkFactory: { createPk: v4 } },
     });
-    em = orm.em.fork(true, false);
+    em = orm.em.fork({ clear: true, useContext: false });
 
     user = em.create(User, {
       profile: { username: "joe", emailAddress: "foo@bar.com" },
